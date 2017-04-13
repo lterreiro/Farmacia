@@ -10,7 +10,7 @@
 
 		<!-- Configurações de Conexão com o Banco de Dados -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/drogaria?useSSL=false</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/farmacia?useSSL=false</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">nls2017</property>
 
@@ -32,6 +32,11 @@
 		<!-- Cria as tabelas do banco de dados -->
 		<property name="hbm2ddl.auto">create</property>
 
+		<!-- Mapeamento das entidades -->
+		<mapping class="br.pro.delfino.drogaria.domain.Cidade" />
+		<mapping class="br.pro.delfino.drogaria.domain.Estado" />
+		<mapping class="br.pro.delfino.drogaria.domain.Fabricante" />
+		
 	</session-factory>
 
 </hibernate-configuration>
