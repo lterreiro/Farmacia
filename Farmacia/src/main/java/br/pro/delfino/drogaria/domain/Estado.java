@@ -33,8 +33,5 @@ public class Estado extends GenericDomain {
 	public String toString() {
 		return "Estado [" + "codigo=" + getCodigo() + ", sigla=" + sigla + ", nome=" + nome + "]";
 	}
-
-	
-
 	
 }

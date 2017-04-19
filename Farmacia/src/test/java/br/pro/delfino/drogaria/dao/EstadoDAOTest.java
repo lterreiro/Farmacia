@@ -43,6 +43,7 @@ public class EstadoDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testBuscarExistente(){
 		Long codigoEsperado = 2L;
 		EstadoDAO estadoDAO = new EstadoDAO();
@@ -54,9 +55,36 @@ public class EstadoDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testBuscarInexistente(){
 		EstadoDAO estadoDAO = new EstadoDAO();
 		Estado resultado = estadoDAO.buscar(99L);
 		Assert.assertNull(resultado);		
+	}
+	
+	@Test
+	@Ignore
+	public void testExcluir(){
+		EstadoDAO estadoDAO = new EstadoDAO();
+		Estado estado = new Estado();
+		estado.setNome("Santa Catarina");
+		estado.setSigla("SC");
+		estadoDAO.salvar(estado);
+		Estado resultado = estadoDAO.buscarNome("Santa Catarina");
+		Assert.assertNotNull(resultado);
+		Assert.assertEquals("Santa Catarina", resultado.getNome());
+		estadoDAO.excluir(resultado);
+	}
+	
+	@Test
+	@Ignore
+	public void testEditar(){
+		Long codigoEsperado = 1L;
+		EstadoDAO estadoDAO = new EstadoDAO();
+		Estado resultado = estadoDAO.buscar(codigoEsperado);
+		Assert.assertNotNull(resultado);
+		Assert.assertEquals(codigoEsperado.longValue(), resultado.getCodigo().longValue());
+		resultado.setSigla("SP");
+		estadoDAO.editar(resultado);
 	}
 }

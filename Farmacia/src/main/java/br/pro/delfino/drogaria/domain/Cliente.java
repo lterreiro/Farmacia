@@ -18,7 +18,7 @@ public class Cliente extends GenericDomain {
 	private Date dataCadastro;
 	
 	@Column(nullable = false)
-	private Boolean liberado0;
+	private Boolean liberado;
 	
 	@OneToOne
 	@JoinColumn(nullable = false)
@@ -32,12 +32,12 @@ public class Cliente extends GenericDomain {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Boolean getLiberado0() {
-		return liberado0;
+	public Boolean getLiberado() {
+		return liberado;
 	}
 
-	public void setLiberado0(Boolean liberado0) {
-		this.liberado0 = liberado0;
+	public void setLiberado(Boolean liberado0) {
+		this.liberado = liberado0;
 	}
 
 	public Pessoa getPessoa() {
@@ -48,4 +48,11 @@ public class Cliente extends GenericDomain {
 		this.pessoa = pessoa;
 	}
 
+	@Override
+	public String toString() {
+		return "Cliente [dataCadastro=" + dataCadastro + ", liberado=" + liberado + ", pessoa=" + pessoa
+				+ ", getCodigo()=" + getCodigo() + "]";
+	}
+
+	
 }
